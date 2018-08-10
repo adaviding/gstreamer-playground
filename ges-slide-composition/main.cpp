@@ -22,6 +22,7 @@ int main(int nargs, char** args)
     
     //  This is where the media files are held (relative to executable).
     std::string collateralFolder = "../../collateral/";
+    //std::string collateralFolder = "../collateral/";
     //std::string collateralFolder = "C:/tmp/collateral/";
 
     // --------------------
@@ -41,6 +42,7 @@ int main(int nargs, char** args)
     GstPad* srcPad = nullptr;
     GstPad* sinkPad = nullptr;
     GstBus* gstBus = nullptr;
+    GstElement* gstQueue = nullptr;
 
     gst_init(&nargs, &args);
     GST_INFO("Initialized gst");
@@ -206,6 +208,24 @@ int main(int nargs, char** args)
     nleComposition = getNleCompositionElement(gesVideoTrack);
     g_signal_connect(nleComposition, "query-position", G_CALLBACK(cbQueryPosition), gstPipeline);
 
+    //  Put a queue after the timeline.
+    gstQueue = gst_element_factory_make("queue", "queue0");
+    if (nullptr == gstQueue)
+    {
+        GST_ERROR("Failed to create queue.");
+        return 1;
+    }
+    gst_bin_add((GstBin*)gstPipeline, gstQueue);
+
+    //  Link video track to queue
+    srcPad = ges_timeline_get_pad_for_track(gesTimeline, gesVideoTrack);
+    sinkPad = gst_element_get_compatible_pad(gstQueue, srcPad, nullptr);
+    if (!GST_PAD_LINK_SUCCESSFUL(gst_pad_link(srcPad, sinkPad)))
+    {
+        GST_ERROR("Failed to link timeline video track to queue.");
+        return 1;
+    }
+
     //  Attach a video sink so we can see the output.
     autoVideoSink = gst_element_factory_make("autovideosink", "sink");
     if (nullptr == autoVideoSink)
@@ -215,12 +235,10 @@ int main(int nargs, char** args)
     }
     gst_bin_add((GstBin*)gstPipeline, autoVideoSink);
 
-    //  Link sink to video track
-    srcPad = ges_timeline_get_pad_for_track(gesTimeline, gesVideoTrack);
-    sinkPad = gst_element_get_compatible_pad(autoVideoSink, srcPad, nullptr);
-    if (!GST_PAD_LINK_SUCCESSFUL(gst_pad_link(srcPad, sinkPad)))
+    //  Link queue to autovideosink
+    if (!gst_element_link(gstQueue, autoVideoSink))
     {
-        GST_ERROR("Failed to link timeline video track to autovideosink.");
+        GST_ERROR("Failed to link queue to autovideosink.");
         return 1;
     }
 
