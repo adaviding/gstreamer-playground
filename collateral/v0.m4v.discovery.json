@@ -1,0 +1,29 @@
+{
+  "duration": 17700000000,
+  "result": "Ok",
+  "seekable": 1,
+  "tags": "taglist, video-codec=(string)\"H.264\\ /\\ AVC\", bitrate=(uint)1911602, encoder=(string)Lavf57.71.100, container-format=(string)\"ISO\\ MP4/M4A\";",
+  "topology": [
+    {
+      "caps": "video/quicktime, variant=(string)iso",
+      "streams": [
+        {
+          "bitrate": 1911602,
+          "caps": "video/x-h264, stream-format=(string)avc, alignment=(string)au, level=(string)3.1, profile=(string)main, codec_data=(buffer)014d401fffe10016674d401f95a0350f6c04400000fa00003a9823c70ca801000468ee3c80, width=(int)848, height=(int)480, framerate=(fraction)30/1, pixel-aspect-ratio=(fraction)1/1, interlace-mode=(string)progressive, parsed=(boolean)true",
+          "depth": 24,
+          "framerate": "30/1",
+          "height": 480,
+          "id": "aad13a7df3b171e075853f937cce5fa2c3d09f606e86983235c63f686e7e9292/001",
+          "image": 0,
+          "interlaced": 0,
+          "maxBitrate": 0,
+          "pixelAspectRatio": "1/1",
+          "type": "video",
+          "width": 848
+        }
+      ],
+      "type": "container"
+    }
+  ],
+  "uri": "file:///C:/Users/ding/Desktop/02/v0.m4v"
+}

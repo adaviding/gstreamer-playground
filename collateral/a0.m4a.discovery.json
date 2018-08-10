@@ -1,0 +1,25 @@
+{
+  "duration": 17957006802,
+  "result": "Ok",
+  "seekable": 1,
+  "tags": "taglist, audio-codec=(string)\"MPEG-4\\ AAC\\ audio\", bitrate=(uint)98467, datetime=(datetime)2018-07-08T16:53:50Z, container-format=(string)\"ISO\\ MP4/M4A\";",
+  "topology": [
+    {
+      "caps": "video/quicktime, variant=(string)iso",
+      "streams": [
+        {
+          "bitrate": 98467,
+          "caps": "audio/mpeg, mpegversion=(int)4, framed=(boolean)true, stream-format=(string)raw, level=(string)2, base-profile=(string)lc, profile=(string)lc, codec_data=(buffer)1210, rate=(int)44100, channels=(int)2",
+          "channels": 2,
+          "depth": 32,
+          "id": "d906119cb17b181d36ebd0fa3c3099fd439fe6c7eb2e7958559e103cffa8216e/001",
+          "maxBitrate": 0,
+          "sampleRate": 44100,
+          "type": "audio"
+        }
+      ],
+      "type": "container"
+    }
+  ],
+  "uri": "file:///C:/Users/ding/Desktop/02/a0.m4a"
+}

@@ -1,0 +1,22 @@
+{
+  "duration": 0,
+  "result": "Ok",
+  "seekable": 0,
+  "topology": [
+    {
+      "bitrate": 0,
+      "caps": "image/jpeg, width=(int)1472, height=(int)828, sof-marker=(int)0",
+      "depth": 24,
+      "framerate": "0/1",
+      "height": 828,
+      "id": "8b1c25d0b4eeafd34cd7e7d9d09cf4b48fe3f3d1a70844747fa5aad83599ef16",
+      "image": 1,
+      "interlaced": 0,
+      "maxBitrate": 0,
+      "pixelAspectRatio": "1/1",
+      "type": "video(image)",
+      "width": 1472
+    }
+  ],
+  "uri": "file:///C:/Users/ding/Desktop/02/slides/slide4.jpg"
+}

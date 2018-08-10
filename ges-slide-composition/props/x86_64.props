@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="common.props" />
+    <Import Project="config.props" />
+    <Import Condition="$(gst_editing_services_1_0Imported)!=true" Project="$(GSTREAMER_1_0_ROOT_X86_64)\share\vs\2010\libs\gst-editing-services-1.0.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <!--<AdditionalLibraryDirectories>$(SolutionDir)libs\poco-1.8.1\lib64\debug_static_mt;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PocoFoundationmtd.lib;PocoXMLmtd.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>-->
+      <AdditionalDependencies>libucrtd.lib;libcmtd.lib;libvcruntimed.lib;libcpmtd.lib;msvcprtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>MaxSpeed</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <!--<AdditionalLibraryDirectories>$(SolutionDir)libs\poco-1.8.1\lib64\release_static_mt;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PocoFoundationmt.lib;PocoXMLmt.lib;%(AdditionalDependencies)</AdditionalDependencies>-->
+      <AdditionalDependencies>libucrt.lib;libcmt.lib;libvcruntime.lib;libcpmt.lib;msvcprt.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkIncremental>true</LinkIncremental>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

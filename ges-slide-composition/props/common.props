@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+    <IncludePath>$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <!--<PreprocessorDefinitions>WINVER=0x0A00;_WIN32_WINNT=0x0A00;WIN32</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>WINVER=0x0501;WIN32;_WINDOWS;_USRDLL;HAVE_WIN32;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>-->
+      <!--<AdditionalIncludeDirectories>$(SolutionDir)libs\poco-1.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>-->
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;__BASE_FILE__="%(Filename)%(Extension)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+        <GenerateDebugInformation>true</GenerateDebugInformation>
+        <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
